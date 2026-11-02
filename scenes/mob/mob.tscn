@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bgvymfcukgkuh"]
 
-[ext_resource type="PackedScene" uid="uid://doxsn13blw0pw" path="res://scenes/player/character.tscn" id="1_a071u"]
 [ext_resource type="Script" uid="uid://bjqwdboftiyhx" path="res://scenes/mob/mob.gd" id="1_nnm6l"]
+[ext_resource type="PackedScene" uid="uid://cqxxbhiphvfbb" path="res://scenes/mob/character.tscn" id="2_nnm6l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wuixk"]
 size = Vector3(3.6122742, 1.9335022, 3.8979492)
@@ -11,7 +11,7 @@ script = ExtResource("1_nnm6l")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=1464101183]
 
-[node name="Character" parent="Pivot" unique_id=1909726563 instance=ExtResource("1_a071u")]
+[node name="character" parent="Pivot" unique_id=113059988 instance=ExtResource("2_nnm6l")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=561923984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0044403076, 0.9394684, -0.0146484375)
