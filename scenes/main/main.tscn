@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://ukfg021g131k"]
+
+[ext_resource type="PackedScene" uid="uid://cbsswakqeh6er" path="res://scenes/player/player.tscn" id="1_hyk8p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wuixk"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wuixk"]
+size = Vector3(60, 2, 60)
+
+[node name="Main" type="Node" unique_id=657518395]
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=231481837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1184979316]
+shape = SubResource("BoxShape3D_wuixk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=353174189]
+mesh = SubResource("BoxMesh_wuixk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=93529761]
+transform = Transform3D(1, 0, 0, 0, 0.25881898, 0.9659258, 0, -0.9659258, 0.25881898, 0, 9, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." unique_id=889192218 instance=ExtResource("1_hyk8p")]
+
+[node name="CameraPivot" type="Marker3D" parent="." unique_id=661747729]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1082403396]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
+projection = 1
+size = 19.0
