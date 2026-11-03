@@ -6,12 +6,15 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_wuixk"]
 size = Vector3(3.6122742, 1.9335022, 3.8979492)
 
-[node name="Mob" type="CharacterBody3D" unique_id=378240104]
+[node name="Mob" type="CharacterBody3D" unique_id=378240104 groups=["mob"]]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_nnm6l")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=1464101183]
 
 [node name="character" parent="Pivot" unique_id=113059988 instance=ExtResource("2_nnm6l")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=561923984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0044403076, 0.9394684, -0.0146484375)

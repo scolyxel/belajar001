@@ -7,11 +7,13 @@
 size = Vector3(3.5690804, 1.8774414, 3.876648)
 
 [node name="Player" type="CharacterBody3D" unique_id=889192218]
+collision_mask = 6
 script = ExtResource("1_dovo2")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=816008341]
 
 [node name="Character" parent="Pivot" unique_id=1909726563 instance=ExtResource("1_8afob")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1325350267]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0054073334, 0.9499512, 0.0061950684)
