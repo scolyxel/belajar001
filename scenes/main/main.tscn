@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cbsswakqeh6er" path="res://scenes/player/player.tscn" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://bby3im36lkvii" path="res://scenes/main/main.gd" id="1_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://bgvymfcukgkuh" path="res://scenes/mob/mob.tscn" id="2_l3cfh"]
+[ext_resource type="Script" uid="uid://dhgry5jrm0yk6" path="res://scenes/main/score_label.gd" id="4_l3cfh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wuixk"]
 size = Vector3(60, 2, 60)
@@ -23,6 +24,9 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
+
+[sub_resource type="Theme" id="Theme_l3cfh"]
+default_font_size = 22
 
 [node name="Main" type="Node" unique_id=657518395]
 script = ExtResource("1_k2fmo")
@@ -80,6 +84,23 @@ transform = Transform3D(-0.005209583, 0, 0.99998593, 0, 1, 0, -0.99998593, 0, -0
 [node name="MobTimer" type="Timer" parent="." unique_id=1674183727]
 wait_time = 0.5
 autostart = true
+
+[node name="UI" type="Control" parent="." unique_id=1476436416]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_l3cfh")
+
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=875140529]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 13.0
+offset_right = 73.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score: x"
+script = ExtResource("4_l3cfh")
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
