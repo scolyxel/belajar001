@@ -6,6 +6,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_wuixk"]
 size = Vector3(3.5690804, 1.8774414, 3.876648)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vjxid"]
+size = Vector3(3.7226563, 0.7174988, 4.032959)
+
 [node name="Player" type="CharacterBody3D" unique_id=889192218]
 collision_mask = 6
 script = ExtResource("1_dovo2")
@@ -18,3 +21,14 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1325350267]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0054073334, 0.9499512, 0.0061950684)
 shape = SubResource("BoxShape3D_wuixk")
+
+[node name="MobDetector" type="Area3D" parent="." unique_id=1279413869]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MobDetector" unique_id=675025213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0142367, 0)
+shape = SubResource("BoxShape3D_vjxid")
+
+[connection signal="body_entered" from="MobDetector" to="." method="_on_mob_detector_body_entered"]
