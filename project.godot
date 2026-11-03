@@ -15,10 +15,6 @@ run/main_scene="uid://ukfg021g131k"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-MusicPlayer="*uid://s628bllwr2dl"
-
 [display]
 
 window/size/viewport_width=720

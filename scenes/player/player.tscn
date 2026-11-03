@@ -9,6 +9,69 @@ size = Vector3(3.5690804, 1.8774414, 3.876648)
 [sub_resource type="BoxShape3D" id="BoxShape3D_vjxid"]
 size = Vector3(3.7226563, 0.7174988, 4.032959)
 
+[sub_resource type="Animation" id="Animation_dovo2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Character:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Character:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.1415925, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gmlin"]
+resource_name = "float"
+length = 1.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Character:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.7, 1.2),
+"transitions": PackedFloat32Array(0.46651644, 2.219139, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.65, 0), Vector3(0, 0.35, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Character:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.5, 1.2),
+"transitions": PackedFloat32Array(0.46651644, 0.4506252, 1),
+"update": 0,
+"values": [Vector3(0, -3.1415925, 0), Vector3(-0.13962634, -3.1415927, 0), Vector3(0.15707964, -3.1415927, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lvxji"]
+_data = {
+&"RESET": SubResource("Animation_dovo2"),
+&"float": SubResource("Animation_gmlin")
+}
+
 [node name="Player" type="CharacterBody3D" unique_id=889192218]
 collision_mask = 6
 script = ExtResource("1_dovo2")
@@ -16,7 +79,7 @@ script = ExtResource("1_dovo2")
 [node name="Pivot" type="Node3D" parent="." unique_id=816008341]
 
 [node name="Character" parent="Pivot" unique_id=1909726563 instance=ExtResource("1_8afob")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1325350267]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0054073334, 0.9499512, 0.0061950684)
@@ -30,5 +93,9 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MobDetector" unique_id=675025213]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0142367, 0)
 shape = SubResource("BoxShape3D_vjxid")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1606681841]
+libraries/ = SubResource("AnimationLibrary_lvxji")
+autoplay = &"float"
 
 [connection signal="body_entered" from="MobDetector" to="." method="_on_mob_detector_body_entered"]
