@@ -87,9 +87,11 @@ autostart = true
 
 [node name="UI" type="Control" parent="." unique_id=1476436416]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_l3cfh")
 
 [node name="ScoreLabel" type="Label" parent="UI" unique_id=875140529]
@@ -101,6 +103,30 @@ offset_bottom = 36.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Score: x"
 script = ExtResource("4_l3cfh")
+
+[node name="Retry" type="ColorRect" parent="UI" unique_id=464290338]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5058824)
+
+[node name="Label" type="Label" parent="UI/Retry" unique_id=1937320317]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.5
+offset_top = -15.5
+offset_right = 109.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press Enter to retray"
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

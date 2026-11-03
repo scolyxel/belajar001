@@ -1,7 +1,10 @@
 extends Node
 @export  var mob_scene : PackedScene
-
-
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("retry") and $UI/Retry.visible:
+		get_tree().reload_current_scene()
+func _ready() -> void:
+	$UI/Retry.hide()
 func _on_mob_timer_timeout() -> void:
 	var mob = mob_scene.instantiate()
 	
@@ -15,3 +18,4 @@ func _on_mob_timer_timeout() -> void:
 
 func _on_player_hit() -> void:
 	$MobTimer.stop()
+	$UI/Retry.show()
